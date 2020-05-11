@@ -476,11 +476,11 @@ open class GeocodedPlacemark: Placemark {
     }
     
     @objc open override var debugDescription: String {
-        return qualifiedName!
+        return qualifiedName ?? ""
     }
     
     internal var qualifiedNameComponents: [String] {
-        if qualifiedName!.contains(", ") {
+        if qualifiedName != nil && qualifiedName!.contains(", ") {
             return qualifiedName!.components(separatedBy: ", ")
         }
         // Chinese addresses have no commas and are reversed.
